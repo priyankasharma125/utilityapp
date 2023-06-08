@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Home = () => {
+const Home = (props) => {
     const [Text, setText] = useState("")
     const Handleclick = (e) => {
         // console.log("onchange")
@@ -24,10 +24,10 @@ const Home = () => {
     }
     return (
         <>
+            <div className="container my-4" style={{color: props.mode==="light"?"#042743":"white"}}>
             <h1 className='my-4 text-center'>TextUtility App</h1>
-            <div className="container my-4">
 
-                <textarea className="form-control" id="mytext" value={Text} onChange={Handleclick} rows="10" cols="5"></textarea>
+                <textarea className="form-control" id="mytext" value={Text} onChange={Handleclick} rows="10" cols="5" style={{backgroundColor:props.mode==="light"?"white":"#042743",color: props.mode==="light"?"#042743":"white"}}></textarea>
                 <div>
                     <button className='btn btn-primary my-4' onClick={UpperText}>Uppercase</button>
                     <button className='btn btn-primary my-4 mx-3 ' onClick={CopyText}>Copy</button>
